@@ -1,0 +1,26 @@
+name: Ubuntu-18.04
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  cmake:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install general dependencies
+        run: sudo apt-get install -y apt-transport-https ca-certificates gnupg software-properties-common wget python3-pip git
+      - name: Remove CMake
+        run: sudo apt-get remove cmake
+      - name: Install new version of CMake via Pip3
+        run: pip3 install cmake --upgrade
+      - name: Install GUI dependencies
+        run: sudo apt-get install -y cmake build-essential libwxgtk3.0-dev libwxgtk3.0-0v5
+      - name: configure
+        run: mkdir build && cd build && cmake -DCMAKE_CXX_FLAGS="-Werror" ..
+      - name: build
+        run: cmake -DCMAKE_BUILD_TYPE=Debug --build build
+
