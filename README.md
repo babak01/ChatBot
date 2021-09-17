@@ -1,6 +1,6 @@
 # Route Planning Project
 
-This code is part of one of the projects in [Udacity C++ nanodegree program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213).
+This project is one of the projects I have completed in [Udacity C++ nanodegree program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213).
 This repo is for System Monitor project. The goal of this project is to build a ChatBot.<br>
 <br>
 
